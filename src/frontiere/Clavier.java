@@ -19,7 +19,7 @@ public class Clavier {
 				scan.next();
 				entreeCorrecte = false;
 			}
-		} while (!(entreeCorrecte && chiffre > 0));
+		} while (!(entreeCorrecte)); /* && chiffre > 0));*/
 		return chiffre;
 	}
 

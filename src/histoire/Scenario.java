@@ -24,11 +24,10 @@ public class Scenario {
 		Village village = new Village("le village des irréductibles", 10, 5);
 		Chef abraracourcix = new Chef("Abraracourcix", 10, village);
 		village.setChef(abraracourcix);
-
 		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
 		ControlAfficherVillage controlAfficherVillage = new ControlAfficherVillage(
 				village);
-
+		
 		ControlVerifierIdentite controlVerifierIdentite = new ControlVerifierIdentite(
 				village);
 		ControlTrouverEtalVendeur controlTrouverEtalVendeur = new ControlTrouverEtalVendeur(
