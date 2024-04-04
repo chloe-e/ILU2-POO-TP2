@@ -25,9 +25,14 @@ class ControlVerifierIdentiteTest {
 		assertNotNull(controlVI);
 	}
 	@Test
-	void testverifierIdentite() {
+	void testVerifierIdentiteFalse() {
 		ControlVerifierIdentite controlVI = new ControlVerifierIdentite(village);
 		assertFalse(controlVI.verifierIdentite("Bob"));
+		assertTrue(controlVI.verifierIdentite("Abraracourcix"));
+	}
+	@Test
+	void testVerifierIdentiteTrue() {
+		ControlVerifierIdentite controlVI = new ControlVerifierIdentite(village);
 		assertTrue(controlVI.verifierIdentite("Abraracourcix"));
 	}
 

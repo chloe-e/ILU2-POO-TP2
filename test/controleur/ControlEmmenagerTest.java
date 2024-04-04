@@ -38,16 +38,21 @@ class ControlEmmenagerTest {
 		assertTrue(controlEmmenager.isHabitant("Druide"));
 	}
 	@Test
-	void testIsHabitant() {
+	void testIsHabitantGauloisPresent() {
 		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
-		//cas gaulois présent
 		controlEmmenager.ajouterGaulois("Bob", 4);
 		assertTrue(controlEmmenager.isHabitant("Bob"));
-		//cas druide présent
+	}
+	@Test
+	void testIsHabitantGauloisAbsent() {
+		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
+		assertFalse(controlEmmenager.isHabitant("Bob2"));
+	}
+	@Test
+	void testIsHabitantDruidePresent() {
+		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
 		controlEmmenager.ajouterDruide("Druide", 2, 3, 4);
 		assertTrue(controlEmmenager.isHabitant("Druide"));
-		//cas gaulois absent
-		assertFalse(controlEmmenager.isHabitant("Bob2"));
 	}
 
 }

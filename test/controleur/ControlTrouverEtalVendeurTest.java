@@ -26,11 +26,20 @@ class ControlTrouverEtalVendeurTest {
 		assertNotNull(controlTEV);
 	}
 	@Test
-	void testtrouverEtalVendeur() {
+	void testTrouverEtalVendeurAbsent() {
 		ControlTrouverEtalVendeur controlTEV = new ControlTrouverEtalVendeur(village);
 		assertTrue(controlTEV.trouverEtalVendeur("Bob") == null);
+	}
+	@Test
+	void testTrouverEtalVendeurPresent() {
+		ControlTrouverEtalVendeur controlTEV = new ControlTrouverEtalVendeur(village);
 		ControlPrendreEtal controlPE = new ControlPrendreEtal(new ControlVerifierIdentite(village),village);
+		village.ajouterHabitant(new Gaulois("Bob",2));
 		controlPE.prendreEtal("Bob", "fleurs", 10);
-		assertTrue(controlTEV.trouverEtalVendeur("Bob") == village.rechercherEtal(new Gaulois("Bob",2)));
+		
+		assertNotNull(controlTEV.trouverEtalVendeur("Bob"));
+		assertTrue(controlTEV.trouverEtalVendeur("Bob").getProduit() == "fleurs");
+		assertTrue(controlTEV.trouverEtalVendeur("Bob").getQuantite() == 10);
+		assertTrue(controlTEV.trouverEtalVendeur("Bob").getVendeur().getNom() == "Bob");
 	}
 }

@@ -79,6 +79,9 @@ public class Etal {
 			donneesVente[3] = String.valueOf(quantiteDebutMarche);
 			donneesVente[4] = String.valueOf(quantiteDebutMarche - quantite);
 		}
+//		for (int i = 0; i < donneesVente.length; i++) {
+//			System.out.println(donneesVente[i]);
+//		}
 		return donneesVente;
 	}
 
